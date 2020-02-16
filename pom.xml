@@ -26,7 +26,7 @@
         <hamcrest.version>1.3</hamcrest.version>
         <httpclient.version>4.5.3</httpclient.version>
         <ibatis-sqlmap.version>2.3.0</ibatis-sqlmap.version>
-        <jackson.version>2.9.0</jackson.version>
+        <jackson.version>2.10.2</jackson.version>
         <jedis.version>2.9.0</jedis.version>
         <json.version>20140107</json.version>
         <jsonassert.version>1.5.0</jsonassert.version>
