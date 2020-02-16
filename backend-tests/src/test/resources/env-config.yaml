@@ -1,0 +1,8 @@
+gateways:
+  restGatewayUrl: https://petstore.swagger.io/
+
+timeoutsSettings:
+  checkTimeout: 10000
+  checkPeriod: 500
+  errorCaseCheckTimeout: 2000
+  implicitlyWaitTimeout: 10000
