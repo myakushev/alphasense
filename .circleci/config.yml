@@ -1,0 +1,26 @@
+version: 2.0
+
+jobs:
+  build:
+    docker:
+      - image: circleci/openjdk:8-jdk-stretch-browsers
+        environment:
+          MAVEN_OPTS: -Xmx1024m
+    working_directory: ~/AlphaSenseTestFramework/
+    steps:
+      - checkout:
+          path: ~/AlphaSenseTestFramework
+      - restore_cache:
+          keys:
+            - $CIRCLE_PROJECT_REPONAME-{{ checksum "pom.xml" }}
+            - $CIRCLE_PROJECT_REPONAME-
+
+      - run:
+          name: Resolve Maven dependencies
+          command: mvn dependency:go-offline compile compiler:testCompile
+      - run:
+          name:  Maven clean
+          command: mvn clean
+      - run:
+          name:  Maven tests
+          command: mvn test -Dcucumber.options="--tags '@category-all' --plugin io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm" -am -pl backend-tests
