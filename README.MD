@@ -14,8 +14,7 @@ You need to install the following:
 
 ## Running the tests
 
-1. Tests can be run by executing the following command:
-
+1. Tests can be run by executing the following command in project directory:
 ```
 mvn clean test -Dcucumber.options="--tags '@category-all' --plugin io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm" -am -pl backend-tests
 ```
