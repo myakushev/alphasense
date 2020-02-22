@@ -2,28 +2,13 @@ package com.alphasense.backend.tests.assertion;
 
 import com.alphasense.backend.client.core.rest.http.HttpResponseDecorator;
 import com.alphasense.backend.client.core.utils.JSONUtils;
-import com.alphasense.backend.client.core.utils.RegexpUtils;
-import com.google.common.collect.Lists;
-import com.google.common.collect.MapDifference;
-import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
-import org.json.JSONException;
 import org.junit.Assert;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.skyscreamer.jsonassert.JSONCompareMode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
-import static com.alphasense.backend.client.core.utils.RegexpUtils.REGEXP_PREFIX;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.*;
 
 /**
  * Contains complex assertions.

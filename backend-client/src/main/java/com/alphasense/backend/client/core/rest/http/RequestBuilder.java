@@ -3,9 +3,6 @@ package com.alphasense.backend.client.core.rest.http;
 import org.apache.http.client.methods.*;
 import org.apache.http.entity.StringEntity;
 
-import java.nio.charset.StandardCharsets;
-
-
 public class RequestBuilder {
 
     private HttpUriRequest request;
