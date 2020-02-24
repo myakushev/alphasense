@@ -1,6 +1,6 @@
 version: 2.0
 
-commands:
+jobs:
   install:
     description: Installs Allure Framework and registers it as /usr/local/bin/allure
     parameters:
@@ -21,8 +21,6 @@ commands:
       - run:
           name: Allure binary symlinking
           command: sudo ln -s /usr/local/share/allure/bin/allure /usr/local/bin/allure
-
-jobs:
   build:
     parameters:
       configuration-path:
