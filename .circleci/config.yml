@@ -2,6 +2,23 @@ version: 2.0
 
 jobs:
   build:
+    parameters:
+      configuration-path:
+        description: 'Path to Allure configuration, uses default one if omitted'
+        type: string
+        default: /usr/local/share/allure/config/allure.yml
+      target-path:
+        description: Path for report directory
+        type: string
+        default:  ~/AlphaSenseTestFramework/backend-tests/target/allure-report
+      results-path:
+        description: Path to directory with test results
+        type: string
+        default:  ~/AlphaSenseTestFramework/backend-tests/target/allure-results
+      artifact-path:
+        description: Path that will be used when storing result as artifact
+        type: string
+        default: Report/Allure
     docker:
       - image: circleci/openjdk:8-jdk-stretch-browsers
         environment:
@@ -19,7 +36,19 @@ jobs:
       - run:
           name:  Maven tests
           command: mvn test -Dcucumber.options="--tags '@category-all' --plugin io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm" -am -pl backend-tests
-      - store_test_results:
-          path: ~/AlphaSenseTestFramework/backend-tests/target/allure-results
+#      - store_test_results:
+#          path: ~/AlphaSenseTestFramework/backend-tests/target/allure-results
+#      - store_artifacts:
+#          path: ~/AlphaSenseTestFramework/backend-tests/target/allure-results
+      - run:
+          name: >-
+            Allure report generation (<< parameters.results-path >> -> <<
+            parameters.target-path >>)
+          command: |
+            allure generate \
+              --config << parameters.configuration-path >> \
+              --report-dir << parameters.target-path >> \
+              << parameters.results-path >>
       - store_artifacts:
-          path: ~/AlphaSenseTestFramework/backend-tests/target/allure-results
+          path: << parameters.target-path >>
+          destination: << parameters.artifact-path >>
