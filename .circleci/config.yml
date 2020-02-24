@@ -45,9 +45,9 @@ jobs:
             Allure report generation (<< parameters.results-path >> -> << parameters.target-path >>)
           command: |
             allure generate \
-              --config << parameters.configuration-path >> \
-              --report-dir << parameters.target-path >> \
-              << parameters.results-path >>
+              --config '/usr/local/share/allure/config/allure.yml' \
+              --report-dir '~/AlphaSenseTestFramework/backend-tests/target/allure-report' \
+              '~/AlphaSenseTestFramework/backend-tests/target/allure-results'
       - store_artifacts:
           path: << parameters.target-path >>
           destination: << parameters.artifact-path >>
