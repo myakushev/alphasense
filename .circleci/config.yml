@@ -1,26 +1,6 @@
 version: 2.0
 
 jobs:
-  install:
-    description: Installs Allure Framework and registers it as /usr/local/bin/allure
-    parameters:
-      version:
-        description: Allure version to use
-        type: string
-        default: 2.13.1
-    steps:
-      - run:
-          name: Allure archive download
-          command: curl -L https://github.com/allure-framework/allure2/releases/download/<< parameters.version >>/allure-commandline-<< parameters.version >>.zip -o /tmp/allure.zip
-      - run:
-          name: Archive extraction
-          command: unzip /tmp/allure.zip
-      - run:
-          name: Allure installation
-          command: sudo mv allure-<< parameters.version >> /usr/local/share/allure
-      - run:
-          name: Allure binary symlinking
-          command: sudo ln -s /usr/local/share/allure/bin/allure /usr/local/bin/allure
   build:
     parameters:
       configuration-path:
@@ -45,6 +25,21 @@ jobs:
           MAVEN_OPTS: -Xmx1024m
     working_directory: ~/AlphaSenseTestFramework/
     steps:
+      - run:
+          name: Allure archive download
+          command: >-
+            curl -L https://github.com/allure-framework/allure2/releases/download/<<
+            parameters.version >>/allure-commandline-<< parameters.version >>.zip -o
+            /tmp/allure.zip
+      - run:
+          name: Archive extraction
+          command: unzip /tmp/allure.zip
+      - run:
+          name: Allure installation
+          command: sudo mv allure-<< parameters.version >> /usr/local/share/allure
+      - run:
+          name: Allure binary symlinking
+          command: sudo ln -s /usr/local/share/allure/bin/allure /usr/local/bin/allure
       - checkout:
           path: ~/AlphaSenseTestFramework
       - run:
