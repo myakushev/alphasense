@@ -60,12 +60,12 @@ jobs:
 #          path: ~/AlphaSenseTestFramework/backend-tests/target/allure-results
       - run:
           name: >-
-            Allure report generation (<< parameters.results-path >> -> << parameters.target-path >>)
+            Allure report generation ('~/AlphaSenseTestFramework/backend-tests/target/allure-results' -> '~/AlphaSenseTestFramework/backend-tests/target/allure-report')
           command: |
             allure generate \
               --config '/usr/local/share/allure/config/allure.yml' \
               --report-dir '~/AlphaSenseTestFramework/backend-tests/target/allure-report' \
               '~/AlphaSenseTestFramework/backend-tests/target/allure-results'
       - store_artifacts:
-          path: << parameters.target-path >>
-          destination: << parameters.artifact-path >>
+          path: ~/AlphaSenseTestFramework/backend-tests/target/allure-report
+          destination: Report/Allure
