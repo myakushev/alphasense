@@ -42,8 +42,7 @@ jobs:
 #          path: ~/AlphaSenseTestFramework/backend-tests/target/allure-results
       - run:
           name: >-
-            Allure report generation (<< parameters.results-path >> -> <<
-            parameters.target-path >>)
+            Allure report generation (<< parameters.results-path >> -> << parameters.target-path >>)
           command: |
             allure generate \
               --config << parameters.configuration-path >> \
