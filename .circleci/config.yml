@@ -19,6 +19,10 @@ jobs:
         description: Path that will be used when storing result as artifact
         type: string
         default: Report/Allure
+      version:
+        description: Allure version to use
+        type: string
+        default: 2.13.1
     docker:
       - image: circleci/openjdk:8-jdk-stretch-browsers
         environment:
