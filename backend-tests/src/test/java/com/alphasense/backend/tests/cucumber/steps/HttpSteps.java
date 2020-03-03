@@ -79,11 +79,13 @@ public class HttpSteps {
         while (true) {
             petId = random.nextInt(Integer.MAX_VALUE);
             testContext.setResponse(restGatewayClient.petApi().getPet(Integer.toString(petId)));
-            if (testContext.getResponse().getStatusCode() == 404 &&
+            int code = testContext.getResponse().getStatusCode();
+            if (code == 404 &&
                     testContext.getResponse().getJsonParam("$.message").toString().equals("Pet not found")) {
                 testContext.addParam("petId", petId);
                 break;
             }
+            Assert.assertNotEquals("500 error code in getPet response", 500, code);
         }
     }
 
@@ -95,10 +97,12 @@ public class HttpSteps {
         while (true) {
             orderId = random.nextInt(Integer.MAX_VALUE);
             testContext.setResponse(restGatewayClient.storeApi().getOrder(Integer.toString(orderId)));
-            if (testContext.getResponse().getStatusCode() == 404) {
+            int code = testContext.getResponse().getStatusCode();
+            if (code == 404) {
                 testContext.addParam("orderId", orderId);
                 break;
             }
+            Assert.assertNotEquals("500 error code in getPet response", 500, code);
         }
     }
 
