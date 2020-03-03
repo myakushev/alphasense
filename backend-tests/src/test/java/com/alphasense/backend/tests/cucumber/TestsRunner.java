@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         monochrome = true,
-        tags = {"@category-two"},
+        tags = {"@category-all"},
         features = "src/test/resources/features/",
         plugin = {"pretty", "html:target/cucumber", "json:target/cucumber.json"},
         glue = "com.alphasense.backend.tests"

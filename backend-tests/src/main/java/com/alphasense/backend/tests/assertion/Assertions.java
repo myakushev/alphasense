@@ -51,14 +51,9 @@ public class Assertions {
      * @param compareMode  JSON compare mode
      */
     public static void assertJSONEquals(String expectedJson, String actualJson, JSONCompareMode compareMode) {
-        if (actualJson.equals("") || expectedJson.equals("")) {
-            Assert.assertEquals("Jsons are not equal", expectedJson, actualJson);
-            return;
-        }
-        JSONCustomComparator comparator = new JSONCustomComparator(compareMode);
         JSONAssert.assertEquals(String.format(
                 DIFF_FIELDS_FORMAT, expectedJson, JSONUtils.beautifyIfJSON(actualJson)),
-                expectedJson, actualJson, comparator);
+                expectedJson, actualJson, new JSONCustomComparator(compareMode));
     }
 
     /**
