@@ -13,7 +13,7 @@ Feature: PetShop
     And send create pet request
       """
         {
-          "id": ${petId},
+          "id": ${petId}123,
           "category": {
             "id": ${categoryId},
             "name": "${categoryName}"
