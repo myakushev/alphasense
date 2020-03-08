@@ -16,7 +16,7 @@ import java.util.*;
 
 public class CucumberHooks {
 
-    private static final String SPLITTER = "=====================";
+    private static final String SPLITTER = "======================";
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
