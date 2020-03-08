@@ -21,7 +21,6 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <commons-lang3.version>3.6</commons-lang3.version>
         <cucumber.version>4.7.2</cucumber.version>
-        <guava.version>23.0</guava.version>
         <httpclient.version>4.5.3</httpclient.version>
         <jackson.version>2.9.0</jackson.version>
         <json.version>20140107</json.version>
@@ -101,11 +100,6 @@
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
                 <version>${httpclient.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
