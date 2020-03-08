@@ -3,6 +3,7 @@ package com.alphasense.backend.client.core.utils;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
